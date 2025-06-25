@@ -1,121 +1,167 @@
-# Comfortable Weather Predictor & Explorer
+# 🌦️ Weather Data Analysis Project
+![Image](https://github.com/user-attachments/assets/c6afd099-e928-4079-9970-89ed7eb77397)
+## 📖 Project Overview
 
-This project transforms a raw weather dataset into a full-stack, interactive web application. Users can define their own "comfortable" weather conditions using sliders and instantly see a machine learning model's prediction, along with dynamic charts showing historical trends for their chosen criteria.
-
-![Application Screenshot](https://i.imgur.com/vHqL3hP.png)
-*(A screenshot of the final, running application)*
-
----
-
-## Features
-
--   **Interactive Controls:** Sliders for temperature, humidity, and wind speed allow users to define custom weather conditions.
--   **Real-Time ML Predictions:** A Scikit-learn (Random Forest) model predicts whether the input conditions are "comfortable" in real-time.
--   **Dynamic Data Visualization:** Charts for seasonal and monthly trends are powered by Chart.js and update instantly based on user input.
--   **Responsive UI:** The interface is built with Tailwind CSS for a seamless experience on both desktop and mobile devices.
--   **Professional Animations:** Subtle animations provide a smooth, modern user experience.
--   **Full-Stack Architecture:** The application is powered by a Flask backend and a vanilla JavaScript frontend.
+This project conducts an **exploratory data analysis (EDA)** on a weather dataset to uncover patterns, relationships, and key statistics about various meteorological conditions. The analysis is performed using **Python** with libraries such as **Pandas**, **Seaborn**, and **Matplotlib** to answer specific questions and visualize trends in the data.
 
 ---
 
-## Tech Stack
+## 📚 Table of Contents
 
--   **Backend:** Python, Flask, Flask-Cors
--   **Machine Learning:** Scikit-learn, Pandas, NumPy
--   **Frontend:** HTML5, CSS3, JavaScript (ES6+)
--   **Styling:** Tailwind CSS
--   **Data Visualization:** Chart.js
--   **Model Persistence:** Joblib
-
----
-
-## Project Journey & Key Steps
-
-This project evolved through several distinct stages, moving from basic data analysis to a fully interactive web application.
-
-#### 1. Initial Data Analysis
-The project began in a Jupyter Notebook (`Untitled.ipynb`) with exploratory data analysis (EDA) on the `weather_dataset.csv`. The primary goal was to understand the data's structure, clean it, and perform an initial analysis to identify "comfortable" days based on a fixed set of rules.
-
-#### 2. Interactive Frontend Prototype
-The initial findings were then translated into a single-page interactive HTML dashboard. This version used vanilla JavaScript to allow users to adjust comfort criteria with sliders and see charts update dynamically, all within the browser.
-
-#### 3. Transition to a Full-Stack Application
-To make the application more robust and scalable, we moved to a full-stack architecture using Flask. This involved separating the frontend (HTML/CSS/JS) from the backend logic (Python).
-
-#### 4. Machine Learning Model Development
-A machine learning model was introduced to replace the simple rule-based filtering.
--   **Model Selection:** A **Random Forest Classifier** was chosen for its robustness and performance.
--   **Training:** The model was trained (`model.py`) on the weather dataset to classify conditions as "comfortable" or "not comfortable."
--   **Evaluation:** The model achieved **100% accuracy** on the test set. (See *A Note on Model Performance* below).
--   **Persistence:** The trained model was saved to a file (`comfortable_weather_model.pkl`) using `joblib`.
-
-#### 5. Backend and Frontend Integration
-The Flask application (`app.py`) was developed to:
--   Load the pre-trained model at startup.
--   Serve the `index.html` file.
--   Create API endpoints (`/predict` and `/chart_data`) to handle requests from the frontend, run predictions, perform data analysis, and return results as JSON.
-
-#### 6. Debugging and Refinement
-The final stage involved significant debugging, including:
--   **Fixing Server Errors:** Resolving a "white screen" issue caused by a mismatch in the data being sent from the backend and expected by the frontend.
--   **Solving CORS Errors:** Implementing the `Flask-Cors` library to allow the browser to communicate with the local Flask server.
--   **Adding Professional Touches:** Incorporating smooth animations and debounced event handling for a polished user experience.
+- [💾 Dataset](#-dataset)
+- [⚙️ Setup and Installation](#️-setup-and-installation)
+- [🚀 How to Use](#-how-to-use)
+- [📊 Data Exploration Summary](#-data-exploration-summary)
+- [📈 Key Analysis and Findings](#-key-analysis-and-findings)
+  - [1. Temperature Analysis](#1-temperature-analysis)
+  - [2. Weather Condition Frequency](#2-weather-condition-frequency)
+  - [3. Wind Speed and Visibility Correlation](#3-wind-speed-and-visibility-correlation)
+  - [4. Pressure vs. Temperature Relationship](#4-pressure-vs-temperature-relationship)
+  - [5. Dew Point Analysis](#5-dew-point-analysis)
+  - [6. Seasonal Variations](#6-seasonal-variations)
+  - [7. Extreme Weather Events](#7-extreme-weather-events)
 
 ---
 
-## Final File Structure
+## 💾 Dataset
 
+The dataset used is `weather_dataset.csv`, which contains **hourly weather records** for a full year for a specific location.
 
-/weather-prediction-app
-|
-|-- app.py                     # Main Flask application
-|-- model.py                   # Script to train and save the ML model
-|-- comfortable_weather_model.pkl  # The saved, trained model
-|-- weather_dataset.csv        # The source dataset
-|-- README.md                  # This file
-|
-|-- templates/
-|   |-- index.html           # The HTML frontend
-
+| Column              | Description                                 | Data Type  |
+|---------------------|---------------------------------------------|------------|
+| Date/Time           | The date and hour of the observation        | datetime64 |
+| Temp_C              | Temperature in degrees Celsius              | float64    |
+| Dew Point Temp_C    | Dew point temperature in degrees Celsius    | float64    |
+| Rel Hum_%           | Relative humidity (%)                       | int64      |
+| Wind Speed_km/h     | Wind speed in kilometers per hour           | int64      |
+| Visibility_km       | Visibility in kilometers                    | float64    |
+| Press_kPa           | Atmospheric pressure in kilopascals         | float64    |
+| Weather             | Weather description (text)                  | object     |
 
 ---
 
-## How to Run Locally
+## ⚙️ Setup and Installation
 
-Follow these steps to get the application running on your local machine.
+To run this project, make sure you have Python 3 installed. Then install the required libraries:
 
-#### 1. Clone the Repository
 ```bash
-git clone <your-repository-url>
-cd weather-prediction-app
+pip install pandas numpy matplotlib seaborn plotly
+```
 
-2. Install Dependencies
-It's recommended to use a virtual environment.
+## 🚀 How to Use
 
-# Create and activate a virtual environment (optional but recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+1. Clone this repository:
+```bash
+git clone https://github.com/your-username/weather-data-analysis.git
+```
+2. Ensure the `weather_dataset.csv` file is in the project directory.
 
-# Install the required Python libraries
-pip install Flask Flask-Cors scikit-learn pandas numpy joblib
+3. Open Weather Analysis.ipynb using Jupyter Notebook or JupyterLab.
 
-3. Train the Model
-Run the model training script to generate the .pkl file.
+4. Run the cells in order to perform the analysis.
 
-python model.py
+## 📊 Data Exploration Summary
 
-4. Run the Flask Application
-Start the web server.
+- **Shape:** 8,784 rows × 8 columns (hourly data for 1 year).
+- **Data Types:** All columns are correctly typed; `Date/Time` was converted to `datetime`.
+- **Missing Values:** None — the dataset is clean.
+- **Unique Weather Conditions:** 50 distinct descriptions like *Clear*, *Cloudy*, *Freezing Drizzle, Fog*, etc.
 
-flask run
+---
 
-5. View in Browser
-Open your web browser and navigate to:
-http://127.0.0.1:5000
+## 📈 Key Analysis and Findings
 
-The application should now be fully functional.
+### 1. 🌡️ Temperature Analysis
 
-A Note on Model Performance
-The model reports a 100% accuracy, which in most machine learning projects is a major red flag for overfitting or data leakage.
+- **Warmest Time:** 3 PM (15:00)
+- **Coolest Time:** 5 AM
+- **Seasonal Pattern:** 
+  - **Hottest:** Summer (June–August)
+  - **Coldest:** Winter (December–February)
 
-In this specific case, it occurs because the features used to train the model (Temp_C, Rel Hum_%, Wind Speed_km/h) are the same ones used to define the target label ("Comfortable"). The model perfectly learns the simple rules embedded in the data. For this project's goal of creating a responsive interface based on these rules, this is acceptable. However, in a real-world predictive scenario,
+---
+
+### 2. 🌤️ Weather Condition Frequency
+
+**Most Common Conditions:**
+
+- Mainly Clear: **24.0%**
+- Mostly Cloudy: **23.6%**
+- Cloudy: **19.7%**
+- Clear: **15.1%**
+
+**Precipitation Insights:**
+
+- **Snow:** 4.4% (More frequent)
+- **Rain:** 3.5%
+
+---
+
+### 3. 🌬️ Wind Speed and Visibility Correlation
+
+- **Correlation Coefficient:** 0.00
+- **Conclusion:** No linear relationship between wind speed and visibility.
+
+---
+
+### 4. ⬇️ Pressure vs Temperature Relationship
+
+- **Trend:** Weak **negative correlation**
+- **Interpretation:** As atmospheric pressure increases, temperature slightly decreases. However, the relationship is not strong enough for prediction.
+
+---
+
+### 5. 💧 Dew Point Analysis
+
+- **Humidity Indicator:** When **Temperature - Dew Point ≤ 2°C**, fog is likely.
+- **Findings:** 
+  - **1,222 instances** favorable for fog.
+  - Primarily occurs in **Fall and Winter**.
+
+---
+
+### 6. 🌡️ Seasonal Variations
+
+- **Temperature:** Warmest in **Summer**, coldest in **Winter**.
+- **Humidity:** Highest in **Fall & Winter**.
+- **Wind Speed:** Strongest during **Winter**.
+
+---
+
+### 7. 🌪️ Extreme Weather Events
+
+- **High Wind (>30 km/h):** ~440 instances
+- **Low Visibility (<1 km):** ~35 instances
+
+**Time-Based Patterns:**
+
+| Event Type           | Peak Times        |
+|----------------------|-------------------|
+| High Wind Events     | 9 AM to 1 PM      |
+| Low Visibility Events| 6 AM (Radiation Fog) |
+
+---
+
+## 🤖 Machine Learning Model — *Coming Soon*
+
+> We are currently working on building a machine learning model to **predict weather conditions** and **temperature patterns** using this dataset.  
+> Stay tuned for model implementation using **regression**, **classification**, and **time-series forecasting** techniques!
+
+---
+
+## 🖼️ Screenshots — ML Model & Flask Web App (In Progress)
+
+### 🔧 Model Development Snapshot
+![Image](https://github.com/user-attachments/assets/5df781cc-e8d9-48e3-872c-f9d7ac400c02)
+![Image](https://github.com/user-attachments/assets/5df781cc-e8d9-48e3-872c-f9d7ac400c02)
+
+![Image](https://github.com/user-attachments/assets/b347c2eb-14b5-4e73-8eb7-509a1a6aeafb)
+![Image](https://github.com/user-attachments/assets/f677a3ef-bfb9-460c-90a7-1d52270150ab)
+
+### 🌐 Flask App Interface Preview
+![Image](https://github.com/user-attachments/assets/b38d188f-21f8-4f8d-9fed-a52fd1e364e0)
+
+
+
+
+---
