@@ -1,5 +1,5 @@
 # 🌦️ Weather Data Analysis Project
-![Image](https://github.com/user-attachments/assets/c6afd099-e928-4079-9970-89ed7eb77397)
+![Image](https://github.com/user-attachments/assets/922d39f7-d2bb-4ef6-8b2f-817aaf1fe9ef)
 ## 📖 Project Overview
 
 This project conducts an **exploratory data analysis (EDA)** on a weather dataset to uncover patterns, relationships, and key statistics about various meteorological conditions. The analysis is performed using **Python** with libraries such as **Pandas**, **Seaborn**, and **Matplotlib** to answer specific questions and visualize trends in the data.
