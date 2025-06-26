@@ -52,7 +52,7 @@ pip install pandas numpy matplotlib seaborn plotly
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/your-username/weather-data-analysis.git
+git clone https://github.com/Akshay8087/Data-Science-Data-Analytics-Real-World-Projects.git
 ```
 2. Ensure the `weather_dataset.csv` file is in the project directory.
 
