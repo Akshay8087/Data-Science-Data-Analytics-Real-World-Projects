@@ -1,11 +1,13 @@
 # 📊 Customer Churn Prediction - End-to-End Data Science Project
-
-
-![Churn Prediction Banner](https://img.shields.io/badge/Machine%20Learning-Customer%20Churn-blueviolet?style=flat-square&logo=scikit-learn)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg?logo=python)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
-
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-black?logo=pandas)
+![NumPy](https://img.shields.io/badge/NumPy-Scientific%20Computing-purple?logo=numpy)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-orange?logo=matplotlib)
+![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Graphics-lightblue?logo=seaborn)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange?logo=scikit-learn)
+![XGBoost](https://img.shields.io/badge/XGBoost-Gradient%20Boosting-red?logo=python)
+![SMOTE](https://img.shields.io/badge/SMOTE-Imbalanced%20Data-teal?logo=python)
+![Pickle](https://img.shields.io/badge/Pickle-Serialization-grey?logo=python)
 
 ## 📚 Table of Contents
 
