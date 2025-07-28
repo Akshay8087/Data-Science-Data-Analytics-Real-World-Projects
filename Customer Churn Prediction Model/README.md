@@ -149,17 +149,6 @@ def plot_histogram(df, column_name):
 ✅ **XGBoost chosen for deployment due to highest test accuracy.**
 
 
-
-## 🤖 Model Performance
-
-### 🔍 Evaluated Models:
-
-| Model               | Accuracy |
-|---------------------|----------|
-| Decision Tree       | 80.34%   |
-| Random Forest       | 81.48%   |
-| **XGBoost (Final)** | **82.33% ✅** |
-
 ---
 
 # 🔄 Loops and Conditionals
@@ -253,4 +242,18 @@ pip install -r requirements.txt
 # Run the script (if converted from notebook to script)
 python churn_model.py
 ```
+
+
+
+---
+
+## 📬 Contact
+
+**Author:** Akshay Rathod  
+📧 Email: [akshayrathod8179@gmail.com](mailto:akshayrathod8179@gmail.com)  
+💼 LinkedIn: [linkedin.com/in/akshayrathod](https://www.linkedin.com/in/akshayrathod)  
+💻 GitHub: [github.com/Akshay8087](https://github.com/Akshay8087)
+
+
+---
 
